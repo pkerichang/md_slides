@@ -46,13 +46,21 @@ $if(scuro)$
 % light-on-dark slides: white text on 90% black background
 \setbeamercolor{normal text}{fg=white,bg=black!90}
 
-% light blue as a highlight color
-\setbeamercolor*{structure}{fg=blue!33!white}
+% custom highlight color
+\definecolor{CustomColor}{RGB}{0,0,33}
+\setbeamercolor*{structure}{fg=CustomColor}
 \setbeamercolor{alerted text}{use=structure,fg=structure.fg}
 \setbeamercolor*{palette primary}{use=structure,fg=structure.fg}
 \setbeamercolor*{palette secondary}{use=structure,fg=structure.fg!95!black}
 \setbeamercolor*{palette tertiary}{use=structure,fg=structure.fg!90!black}
 \setbeamercolor*{palette quaternary}{use=structure,fg=structure.fg!95!black,bg=black!80}
+\setbeamercolor*{navigation symbols}{fg=white}
+\setbeamercolor*{itemize item}{fg=white}
+\setbeamercolor*{itemize subitem}{fg=white}
+\setbeamercolor*{itemize subsubitem}{fg=white}
+
+% set item symbols
+\setbeamertemplate{itemize items}[circle]
 
 \setbeamercolor*{framesubtitle}{fg=white}
 % N.B. we also skip pandoc's default adjustment to figure captions:
@@ -66,7 +74,14 @@ $endif$
 
 % use system fonts. The sans font will be used
 \usefonttheme{professionalfonts}
+\setbeamerfont{title}{family=\fontspec{Fira Sans},size=\LARGE}
+\setbeamerfont{frametitle}{family=\fontspec{Fira Sans},size=\LARGE}
+\setbeamerfont{block title}{size=\Large}
 \setbeamerfont{quote}{shape=\upshape}
+\setbeamerfont{navigation symbols}{size=\scriptsize}
+\setbeamerfont{itemize item}{size=\footnotesize}
+\setbeamerfont{itemize subitem}{size=\scriptsize}
+\setbeamerfont{itemize subsubitem}{size=\tiny}
 
 % eliminate silly beamer navigation line at bottom of slides
 % or optionally replace with 3 / 25 little number
@@ -78,7 +93,7 @@ $if(beamer-notes)$
     \setcounter{slidetotal}{\insertdocumentendpage / 2}
     \theslidenum\ / \theslidetotal}
 $else$
-\setbeamertemplate{navigation symbols}{\insertpagenumber\ / \insertdocumentendpage}
+\setbeamertemplate{navigation symbols}{\insertpagenumber}
 $endif$
 $else$
 \setbeamertemplate{navigation symbols}{}
