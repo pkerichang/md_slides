@@ -50,6 +50,8 @@ I like to use headings to mark my planned timing. Notice the use of LaTeX rather
 
 But the script will only show a single slide, collapsing the increments together. This is not always desirable, and you may want to add a
 
+:::
+
 # note to self: BUILD
 
 to remind you to advance the slideshow as you talk. More complex "builds" are possible using beamer overlays, which go between `<...>`.
@@ -62,7 +64,6 @@ For fine layout control for images or other material that can't just be set like
 
 \newpage
 
-:::
 
 ## Image positioning
 

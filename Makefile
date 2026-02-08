@@ -44,8 +44,8 @@ NOSLIDE_LUA := noslide.lua
 NOTES_LUA := notes.lua
 
 # these work if the two templates are local or in ~/.pandoc/templates
-SLIDES_TMPL := elsmd-slides.latex
-SCRIPT_TMPL := beamerarticle.latex
+SLIDES_TMPL := elsmd-slides.tex
+SCRIPT_TMPL := beamerarticle.tex
 
 # used for `make install`
 
