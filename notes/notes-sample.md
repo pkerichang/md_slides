@@ -59,20 +59,7 @@ And third. Use markdown in notes: *emphasis*.
 Grid demo UL
 \end{textblock}
 
-\begin{textblock}{4}(7,1)
+\begin{textblock}{4}(5,1)
+\includegraphics[width=4\TPHorizModule]{../media/proj.pdf}
 Grid demo UR
 \end{textblock}
-
-\begin{textblock}{4}(0,5)
-Grid demo LL
-\end{textblock}
-
-\begin{textblock}{4}(7,5)
-\only<2>{Grid demo LR}
-\end{textblock}
-
-::: note<2>
-
-To get overlay effects with materials placed using `textpos`, you have to specify the overlay within the `textblock` environment.
-
-:::

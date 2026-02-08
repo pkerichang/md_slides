@@ -20,4 +20,10 @@ This is my setup for generating slides from Markdown, adapted from ELSMD.  See [
 
 ## Tips
 
-- When you want to debug, run `make latex_quiet=""` to enable more verbose latex outputs.
+- Run `make note_slides` to create only slides from notes.
+
+- When you want to debug, run `make note_slides latex_quiet=""` to enable more verbose latex outputs.
+
+- You can use the `-B` flag to force rebuild when running `make`.
+
+- Run `make reallyclean` to clean all files before rebuilding.

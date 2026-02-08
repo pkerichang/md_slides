@@ -44,7 +44,7 @@ NOSLIDE_LUA := noslide.lua
 NOTES_LUA := notes.lua
 
 # these work if the two templates are local or in ~/.pandoc/templates
-SLIDES_TMPL := elsmd-slides.tex
+SLIDES_TMPL := template.tex
 SCRIPT_TMPL := beamerarticle.tex
 
 # temp file subdirectory (created in lectures, slides, handouts)
@@ -78,6 +78,7 @@ scripts_pdf := $(patsubst %.tex,%.pdf,$(scripts_tex))
 slides_notes_tex := $(patsubst $(NOTES)/%.md,slides/%.tex,$(notes_md))
 slides_scripts_tex := $(patsubst $(SCRIPTS)/%.md,slides/%.tex,$(scripts_md))
 slides_pdf := $(patsubst %.tex,%.pdf,$(slides_notes_tex) $(slides_scripts_tex))
+slides_notes_pdf := $(patsubst %.tex,%.pdf,$(slides_notes_tex))
 handouts_notes_tex := $(patsubst $(NOTES)/%.md,handouts/%.tex,$(notes_md))
 handouts_notes_pdf := $(patsubst %.tex,%.pdf,$(handouts_notes_tex))
 handouts_scripts_tex := $(patsubst $(SCRIPTS)/%.md,handouts/%.tex,$(scripts_md))
@@ -160,7 +161,7 @@ $(notes_pdf): %.pdf: %.tex
 
 all: $(pdfs) $(notes_pdf)
 
-note_slides: ${slides_pdf}
+note_slides: ${slides_notes_pdf}
 
 # clean up everything except final pdfs
 clean:
