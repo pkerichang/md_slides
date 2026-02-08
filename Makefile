@@ -22,7 +22,7 @@ NOTES := notes
 SCRIPTS := scripts
 
 # default metadata added to all slides and handouts; leave empty to remove
-SLIDE_YAML := slide-meta.yaml
+SLIDE_YAML := metadata.yaml
 
 # Set to anything non-empty to always use the "scuro" dark-on-light scheme
 # on slides. Comment this out to turn this off (you can still turn it on
@@ -47,21 +47,9 @@ NOTES_LUA := notes.lua
 SLIDES_TMPL := elsmd-slides.tex
 SCRIPT_TMPL := beamerarticle.tex
 
-# used for `make install`
-
-TMPL_DIR := $(HOME)/.pandoc/templates
-FILTER_DIR := $(HOME)/.pandoc/filters
-
 # temp file subdirectory (created in lectures, slides, handouts)
 # change this if you're using */tmp for something else
 temp_dir := tmp
-
-## ---- install ----
-
-# copy templates and filter script to pandoc's default locations for these
-install:
-	cp -f $(SLIDES_TMPL) $(SCRIPT_TMPL) $(TMPL_DIR)
-	cp -f $(NOSLIDE_LUA) $(NOTES_LUA) $(FILTER_DIR)
 
 ## ---- commands ----
 
@@ -171,6 +159,8 @@ $(notes_pdf): %.pdf: %.tex
 	rm -r $(dir $@)$(temp_dir)
 
 all: $(pdfs) $(notes_pdf)
+
+note_slides: ${slides_pdf}
 
 # clean up everything except final pdfs
 clean:

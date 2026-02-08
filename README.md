@@ -11,3 +11,7 @@ This is my setup for generating slides from Markdown, adapted from ELSMD.  See [
   textpos pdfpages pdflscape titlesec float biblatex-chicago xstring titling
   ```
 - install `pandoc`.
+
+## Tips
+
+- When you want to debug, run `make latex_quiet=""` to enable more verbose latex outputs.
