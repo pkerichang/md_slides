@@ -60,9 +60,8 @@ pandoc2 := `pandoc -v | head -1 | grep '^pandoc 2'`
 pandoc_xelatex := $(if $(xelatex),$(if $(pandoc2),--pdf-engine,--latex-engine) xelatex)
 PANDOC := pandoc $(pandoc_xelatex) $(PANDOC_OPTIONS) --lua-filter=$(NOTES_LUA)
 
-LATEXMK := latexmk $(if $(xelatex),-xelatex,-pdflatex="pdflatex %O %S") \
-    -pdf -dvi- -ps- $(if $(latex_quiet),-silent,-verbose) \
-    -outdir=$(temp_dir)
+LATEXMK := latexmk $(if $(xelatex),-pdfxe,-pdf") \
+    $(if $(latex_quiet),-silent,-verbose) -outdir=$(temp_dir)
 
 NOSLIDE_FILTER := --lua-filter=$(NOSLIDE_LUA)
 
