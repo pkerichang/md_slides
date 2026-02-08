@@ -1,0 +1,13 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [
+        100
+    ],
+    "editor.minimap.enabled": false,
+    "files.trimTrailingWhitespace": true,
+    "chat.disableAIFeatures": true,
+}
