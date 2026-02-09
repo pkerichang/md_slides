@@ -19,6 +19,8 @@ This is my setup for generating slides from Markdown, adapted from ELSMD.  See [
 - install `pandoc`.
   - For Arch Linux, also install `libxcrypt-compat`, which is required for `biber` to work.
 
+- install `tex-fmt` for formatting .tex files.
+
 ## Setup
 
 - Create `template.tex`, which will be the beamer template for your slides.
