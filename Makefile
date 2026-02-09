@@ -10,7 +10,7 @@ latex_quiet := true
 # regeneration. If you have many talks it probably makes more to take this
 # manual option.
 # always_latexmk := true
-always_latexmk := 
+always_latexmk :=
 
 # Set to anything non-empty to use xelatex rather than pdflatex. I always do
 # this in order to use system fonts and better Unicode support. pdflatex is
@@ -30,7 +30,7 @@ SLIDE_YAML := metadata.yaml
 SCURO := true
 
 # Extra options to pandoc. Note that certain options set here are overridden.
-PANDOC_OPTIONS := 
+PANDOC_OPTIONS :=
 
 ## ---- special external files ----
 
@@ -71,9 +71,9 @@ notes_md := $(wildcard $(NOTES)/*.md)
 scripts_md := $(wildcard $(SCRIPTS)/*.md)
 
 notes_tex := $(patsubst $(NOTES)/%.md,lectures/%.tex,$(notes_md))
-notes_pdf := $(patsubst %.tex,%.pdf,$(notes_tex)) 
+notes_pdf := $(patsubst %.tex,%.pdf,$(notes_tex))
 scripts_tex := $(patsubst $(SCRIPTS)/%.md,lectures/%.tex,$(scripts_md))
-scripts_pdf := $(patsubst %.tex,%.pdf,$(scripts_tex)) 
+scripts_pdf := $(patsubst %.tex,%.pdf,$(scripts_tex))
 slides_notes_tex := $(patsubst $(NOTES)/%.md,slides/%.tex,$(notes_md))
 slides_scripts_tex := $(patsubst $(SCRIPTS)/%.md,slides/%.tex,$(scripts_md))
 slides_pdf := $(patsubst %.tex,%.pdf,$(slides_notes_tex) $(slides_scripts_tex))
@@ -147,16 +147,17 @@ $(pdfsets): %:lectures/%.pdf slides/%.pdf handouts/%.pdf
 .PHONY: $(phony_pdfs) $(pdfsets) all clean reallyclean install
 
 $(pdfs): %.pdf: %.tex
-	rm -rf $(dir $@)$(temp_dir)
-	cd $(dir $<); $(LATEXMK) $(notdir $<)
-	mv $(dir $@)$(temp_dir)/$(notdir $@) $@
-	rm -r $(dir $@)$(temp_dir)
+	rm -rf $(dir $<)$(temp_dir)
+	mkdir -p ${dir $<}$(temp_dir)
+	cd $(dir $<);ln -s ../../figures/$(basename $(notdir $<)) $(temp_dir)/figures;$(LATEXMK) $(notdir $<)
+	mv $(dir $<)$(temp_dir)/$(notdir $@) $@
+	rm -r $(dir $<)$(temp_dir)
 
 $(notes_pdf): %.pdf: %.tex
-	rm -rf $(dir $@)$(temp_dir)
+	rm -rf $(dir $<)$(temp_dir)
 	cd $(dir $<); $(LATEXMK) $(notdir $<)
-	pdfjam --nup 2x2 --landscape $(dir $@)$(temp_dir)/$(notdir $@) -o $@
-	rm -r $(dir $@)$(temp_dir)
+	pdfjam --nup 2x2 --landscape $(dir $<)$(temp_dir)/$(notdir $@) -o $@
+	rm -r $(dir $<)$(temp_dir)
 
 all: $(pdfs) $(notes_pdf)
 
@@ -167,7 +168,7 @@ clean:
 	rm -rf lectures/$(temp_dir) slides/$(temp_dir) handouts/$(temp_dir)
 	rm -f $(notes_tex) $(scripts_tex) \
 	    $(slides_notes_tex) $(slides_scripts_tex) \
-	    $(handouts_notes_tex) $(handouts_scripts_tex) 
+	    $(handouts_notes_tex) $(handouts_scripts_tex)
 
 # clean up everything including pdfs
 reallyclean: clean
