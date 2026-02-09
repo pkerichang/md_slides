@@ -10,4 +10,7 @@
     "editor.minimap.enabled": false,
     "files.trimTrailingWhitespace": true,
     "chat.disableAIFeatures": true,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.bibtex-format.tab": "2 spaces",
+    "latex-workshop.formatting.latex": "tex-fmt",
 }

@@ -9,36 +9,36 @@ $endif$
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
-  \usepackage[utf8]{inputenc}
+\usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+\usepackage[utf8]{inputenc}
 $if(euro)$
-  \usepackage{eurosym}
+\usepackage{eurosym}
 $endif$
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\ifxetex
+\usepackage{mathspec}
+\else
+\usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 $if(euro)$
-  \newcommand{\euro}{€}
+\newcommand{\euro}{€}
 $endif$
 $if(mainfont)$
-    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+\setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 $endif$
 $if(sansfont)$
-    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+\setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
 $endif$
 $if(monofont)$
-    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+\setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
 $endif$
 $if(mathfont)$
-    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+\setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
 $endif$
 $if(CJKmainfont)$
-    \usepackage{xeCJK}
-    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+\usepackage{xeCJK}
+\setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
 $endif$
 \fi
 
@@ -89,9 +89,9 @@ $if(slide-numbers)$
 $if(beamer-notes)$
 % for the speaker-notes version of the slide, we need a kludge to get the right number to appear
 \setbeamertemplate{navigation symbols}{%
-    \setcounter{slidenum}{\insertpagenumber / 2 + 1}
-    \setcounter{slidetotal}{\insertdocumentendpage / 2}
-    \theslidenum\ / \theslidetotal}
+  \setcounter{slidenum}{\insertpagenumber / 2 + 1}
+  \setcounter{slidetotal}{\insertdocumentendpage / 2}
+\theslidenum\ / \theslidetotal}
 $else$
 \setbeamertemplate{navigation symbols}{\insertpagenumber}
 $endif$
@@ -113,20 +113,20 @@ $endif$
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+  \usepackage{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+\usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
 $if(babel-newcommands)$
-  $babel-newcommands$
+$babel-newcommands$
 $endif$
 \else
-  \usepackage{polyglossia}
-  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+\usepackage{polyglossia}
+\setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
 $for(polyglossia-otherlangs)$
-  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+\setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
 $endfor$
 \fi
 $endif$
@@ -159,11 +159,11 @@ $highlighting-macros$
 % tweak code highlighting environment used by pandoc
 $if(highlighting-options)$
 \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{%
-    commandchars=\\\{\},%
-    $for(highlighting-options)$$highlighting-options$$sep$,$endfor$}
+  commandchars=\\\{\},%
+$for(highlighting-options)$$highlighting-options$$sep$,$endfor$}
 $else$
 \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{%
-    commandchars=\\\{\},fontsize=\small}
+commandchars=\\\{\},fontsize=\small}
 $endif$
 $endif$
 
@@ -172,11 +172,11 @@ $if(routput)$
 \usepackage{fancyvrb}
 $if(routput-options)$
 \DefineVerbatimEnvironment{ROutput}{Verbatim}{%
-    $for(routput-options)$$routput-options$$sep$,$endfor$}
+$for(routput-options)$$routput-options$$sep$,$endfor$}
 $else$
 \DefineVerbatimEnvironment{ROutput}{Verbatim}{%
-    formatcom=\color{$if(scuro)$light$else$dark$endif$gray},%
-    fontsize=\footnotesize}
+  formatcom=\color{$if(scuro)$light$else$dark$endif$gray},%
+fontsize=\footnotesize}
 $endif$
 $endif$
 
@@ -193,6 +193,8 @@ $endif$
 \makeatother
 
 \usepackage{graphicx}
+% enables including SVG files
+\usepackage{svg}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
@@ -213,9 +215,9 @@ $if(section-titles)$
 \AtBeginSection{
   \ifbibliography
   \else
-    \let\insertsectionnumber\relax
-    \let\sectionname\relax
-    \frame{\sectionpage}
+  \let\insertsectionnumber\relax
+  \let\sectionname\relax
+  \frame{\sectionpage}
   \fi
 }
 \AtBeginSubsection{
@@ -236,7 +238,7 @@ $if(strikeout)$
 $endif$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 $if(numbersections)$
 \setcounter{secnumdepth}{5}
 $else$
@@ -244,19 +246,19 @@ $else$
 $endif$
 $if(dir)$
 \ifxetex
-  % load bidi as late as possible as it modifies e.g. graphicx
-  $if(latex-dir-rtl)$
-  \usepackage[RTLdocument]{bidi}
-  $else$
-  \usepackage{bidi}
-  $endif$
+% load bidi as late as possible as it modifies e.g. graphicx
+$if(latex-dir-rtl)$
+\usepackage[RTLdocument]{bidi}
+$else$
+\usepackage{bidi}
+$endif$
 \fi
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
-  \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
+\TeXXeTstate=1
+\newcommand{\RL}[1]{\beginR #1\endR}
+\newcommand{\LR}[1]{\beginL #1\endL}
+\newenvironment{RTL}{\beginR}{\endR}
+\newenvironment{LTR}{\beginL}{\endL}
 \fi
 $endif$
 
@@ -267,11 +269,11 @@ $if(beamer-notes)$
 \setbeameroption{show notes}
 % include slide number on beamer note page BUT we have to deal with the fact that all the page counters are thrown off by the addition of notes pages
 \setbeamertemplate{note page}{%
-    \setcounter{slidenum}{\insertpagenumber / 2}
-    \setcounter{slidetotal}{\insertdocumentendpage / 2}
-    \strut\hspace*{\fill}\theslidenum\ / \theslidetotal%
-    \par%
-    \insertnote
+  \setcounter{slidenum}{\insertpagenumber / 2}
+  \setcounter{slidetotal}{\insertdocumentendpage / 2}
+  \strut\hspace*{\fill}\theslidenum\ / \theslidetotal%
+  \par%
+  \insertnote
 }
 
 % force notes page on each slide
@@ -290,57 +292,56 @@ $if(slide-numbers)$
 $endif$
 \usepackage{pgfpages}
 \pgfpagesdeclarelayout{2 on 1 with blanks landscape}{
-    \edef\pgfpageoptionheight{\the\paperheight}
-    \edef\pgfpageoptionwidth{\the\paperwidth}
-    \edef\pgfpageoptionborder{0pt}
+  \edef\pgfpageoptionheight{\the\paperheight}
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
 }{
-    \setkeys{pgfpagesuselayoutoption}{landscape}
-    \pgfpagesphysicalpageoptions{%
-        logical pages=4,%
-        physical height=\pgfpageoptionheight,%
-        physical width=\pgfpageoptionwidth,%
+  \setkeys{pgfpagesuselayoutoption}{landscape}
+  \pgfpagesphysicalpageoptions{%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
     %      last logical shipout=3%
-        last logical shipout=2%
+    last logical shipout=2%
+  }
+  \pgfpageslogicalpageoptions{1}{%
+    scale=1,
+    center=\pgfpoint{.3\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}{%
+    scale=1,
+    center=\pgfpoint{.3\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}{%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.4\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.3\pgfphysicalheight},%
+    copy from=3
+  }%
+  \pgfpageslogicalpageoptions{4}{%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.7\pgfphysicalwidth,%
+    resized height=.4\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.8\pgfphysicalheight},%
+    copy from=4
+  }%
+  \AtBeginDocument{
+    \newbox\notesbox
+    \setbox\notesbox=\vbox{
+      \hsize=\paperwidth
+      \vskip-1in\hskip-1in\vbox{
+        \vskip1cm
+      }
     }
-    \pgfpageslogicalpageoptions{1}{%
-        scale=1,
-        center=\pgfpoint{.3\pgfphysicalwidth}{.75\pgfphysicalheight}%
-    }%
-    \pgfpageslogicalpageoptions{2}{%
-        scale=1,
-        center=\pgfpoint{.3\pgfphysicalwidth}{.25\pgfphysicalheight}%
-    }%
-    \pgfpageslogicalpageoptions{3}{%
-       border shrink=\pgfpageoptionborder,%
-       resized width=.7\pgfphysicalwidth,%
-       resized height=.4\pgfphysicalheight,%
-       center=\pgfpoint{.75\pgfphysicalwidth}{.3\pgfphysicalheight},%
-       copy from=3
-    }%
-    \pgfpageslogicalpageoptions{4}{%
-        border shrink=\pgfpageoptionborder,%
-        resized width=.7\pgfphysicalwidth,%
-        resized height=.4\pgfphysicalheight,%
-        center=\pgfpoint{.75\pgfphysicalwidth}{.8\pgfphysicalheight},%
-        copy from=4
-    }%
-    \AtBeginDocument{
-        \newbox\notesbox
-        \setbox\notesbox=\vbox{
-            \hsize=\paperwidth
-            \vskip-1in\hskip-1in\vbox{
-                \vskip1cm
-            }
-        }
-        \pgfpagesshipoutlogicalpage{3}\copy\notesbox
-        \pgfpagesshipoutlogicalpage{4}\copy\notesbox
-    }
+    \pgfpagesshipoutlogicalpage{3}\copy\notesbox
+    \pgfpagesshipoutlogicalpage{4}\copy\notesbox
+  }
 }
 
 \pgfpagesuselayout{2 on 1 with blanks landscape}[letterpaper,%
 border shrink=0.125in]
 $endif$
-
 
 \usepackage[overlay,absolute]{textpos}
 \TPGrid[10 mm,8 mm]{9}{8} % 9x8 grid with units of 12 mm and 10 mm
@@ -363,7 +364,6 @@ $if(institute)$
 $endif$
 \date{$date$}
 
-
 \begin{document}
 $if(title)$
 \frame{\titlepage}
@@ -383,7 +383,7 @@ $endfor$
 
 $if(biblio-title)$
 \begin{frame}[t,allowframebreaks]{$biblio-title$}
-    \printbibliography[heading=none]
+  \printbibliography[heading=none]
 \end{frame}
 $endif$
 \end{document}
