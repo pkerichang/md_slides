@@ -50,6 +50,7 @@ SCRIPT_TMPL := beamerarticle.tex
 # temp file subdirectory (created in lectures, slides, handouts)
 # change this if you're using */tmp for something else
 temp_dir := tmp
+svg_dir := svg-inkscape
 
 ## ---- commands ----
 
@@ -166,6 +167,7 @@ note_slides: ${slides_notes_pdf}
 # clean up everything except final pdfs
 clean:
 	rm -rf lectures/$(temp_dir) slides/$(temp_dir) handouts/$(temp_dir)
+	rm -rf lectures/$(svg_dir) slides/$(svg_dir) handouts/$(svg_dir)
 	rm -f $(notes_tex) $(scripts_tex) \
 	    $(slides_notes_tex) $(slides_scripts_tex) \
 	    $(handouts_notes_tex) $(handouts_scripts_tex)

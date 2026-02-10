@@ -62,6 +62,6 @@ Grid demo UL
 \end{textblock}
 
 \begin{textblock}{4}(5,1)
-\includegraphics[width=4\TPHorizModule]{tmp/figures/proj.pdf}
+\includegraphics[width=4\TPHorizModule]{proj.pdf}
 Grid demo UR
 \end{textblock}
