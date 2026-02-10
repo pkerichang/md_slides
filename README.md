@@ -14,7 +14,7 @@ This is my setup for generating slides from Markdown, adapted from ELSMD.  See [
   ```
   latexmk biblatex biber beamer pdfjam ragged2e booktabs caption mathspec fontspec
   textpos pdfpages pdflscape titlesec float biblatex-chicago xstring titling xkeyval
-  svg transparent catchfile fancyvrb
+  svg transparent catchfile fancyvrb upquote microtype framed
   ```
 - install `pandoc`.
   - For Arch Linux, also install `libxcrypt-compat`, which is required for `biber` to work.
